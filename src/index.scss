@@ -1,0 +1,50 @@
+@import "~bootstrap/scss/bootstrap";
+@import "~react-datepicker/src/stylesheets/datepicker.scss";
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.navbar {
+  background-color: transparent !important;
+  background: transparent !important;
+  border-color: transparent !important;
+  
+}
+
+.navigation{
+  position: fixed;
+  z-index: 99 !important;
+  
+}
+.datePicker{
+  display: flex;
+}
+
+.main {
+  position: relative;
+  z-index: 0;
+}
+
+.imagen{
+  display: block;
+  
+}
+
+.rowForm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
