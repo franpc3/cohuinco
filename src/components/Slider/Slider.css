@@ -1,0 +1,70 @@
+
+.sideSlide{
+    height: 100vh;  
+}
+
+.logo{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    z-index: 2;
+    top: 0;
+    left: 5%;
+}
+
+.carousel .carousel-indicators li {
+    width: .625rem;
+    height: .625rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.carousel-indicators li {
+    box-sizing: content-box;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    width: 30px;
+    height: 3px;
+    margin-right: 3px;
+    margin-left: 3px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: #fff;
+    background-clip: padding-box;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    opacity: .5;
+    transition: opacity .6s ease;
+}
+
+@media (max-width: 1023px){
+    .carousel-indicators li {
+         display: none;
+    }
+    .sideSlide{
+        height: 55vh;   
+    }
+    .carousel-control-next-icon{
+        display: none;
+    }
+    .carousel-control-prev-icon{
+        display: none;
+    }
+}
+
+
+
+@media (max-width: 767px){
+    .carousel-indicators li {
+         display: none;
+    }
+    .sideSlide{
+        height: 45vh;   
+    }
+    .carousel-control-next-icon{
+        display: none;
+    }
+    .carousel-control-prev-icon{
+        display: none;
+    }
+}

@@ -1,0 +1,21 @@
+.formheight{
+    margin-top: 13vh;
+}
+.bordercolortitle{
+    border-bottom: rgb(0, 23, 44) 1px solid;
+}
+.bordercolor{
+    border-color: rgb(0, 23, 44);
+}
+
+.list-group-item.active{
+    background-color:  rgb(0, 23, 44);
+    border-color: rgb(0, 23, 44);
+    color: white;
+}
+
+@media (max-width: 1024px) {
+    .formheight{
+        margin-top: 8vh;
+    }
+}

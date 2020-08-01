@@ -1,0 +1,11 @@
+.marginfooter{
+    margin-top: 15vh;
+}
+.borderfooter{
+    border-top: rgb(0, 23, 44) 1px solid;
+}
+@media (max-width: 1024px) {
+    .marginfooter{
+        margin-top: 10vh;
+    }
+}
