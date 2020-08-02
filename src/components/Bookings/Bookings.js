@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import {Container, Row, Col, Tab, ListGroup, Image } from 'react-bootstrap';
+import {Container, Row, Col, Tab, ListGroup} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faConciergeBell, faWater } from '@fortawesome/free-solid-svg-icons';
-import reservatulugar from '../Images/reservatulugar.png'
+
 import Rafting from '../Rafting/Rafting';
 import Accommodation from '../Accommodation/Accommodation';
 import Footer from '../Footer/Footer';
@@ -13,8 +13,8 @@ export default function Bookings() {
     const [active, setActive] = useState('alojamiento');
 
     return (
-        <div className="text-center backgroundimage">
-            <Image src={reservatulugar} fluid alt="" />
+        <div className="text-center px-2">
+            
             <Tab.Container>
                 <Row className="justify-content-center mx-0 mx-md-5 formheight">
 

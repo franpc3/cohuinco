@@ -1,12 +1,7 @@
 .formheight{
     margin-top: 5vh;
 }
-.backgroundimage{
-    background-image: url(../Images//background.png);
-    background-position: center;
-    background-repeat: repeat;
-    background-size: contain;
-}
+
 
 
 .bordercolor{

@@ -3,3 +3,9 @@
     top: 10%;
 }
 
+.backgroundimage{
+    background-image: url(../Images//background.png);
+    background-position: center;
+    background-repeat: repeat;
+    background-size: contain;
+}

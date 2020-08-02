@@ -50,6 +50,14 @@
     .carousel-control-prev-icon{
         display: none;
     }
+    .logo{
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        z-index: 2;
+        top: 0;
+        left: 37%;
+    }
 }
 
 
@@ -66,5 +74,13 @@
     }
     .carousel-control-prev-icon{
         display: none;
+    }
+    .logo{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        z-index: 2;
+        top: 0;
+        left: 5%;
     }
 }
