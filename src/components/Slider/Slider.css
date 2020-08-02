@@ -5,11 +5,11 @@
 
 .logo{
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     z-index: 2;
     top: 0;
-    left: 5%;
+    left: 37%;
 }
 
 .carousel .carousel-indicators li {

@@ -1,18 +1,20 @@
 import React, { useState } from 'react'
-import {Container, Row, Col, Tab, ListGroup } from 'react-bootstrap';
+import {Container, Row, Col, Tab, ListGroup, Image } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faConciergeBell, faWater } from '@fortawesome/free-solid-svg-icons';
+import reservatulugar from '../Images/reservatulugar.png'
 import Rafting from '../Rafting/Rafting';
 import Accommodation from '../Accommodation/Accommodation';
 import Footer from '../Footer/Footer';
+
 import './Bookings.css'
 
 export default function Bookings() {
     const [active, setActive] = useState('alojamiento');
 
     return (
-        <div className="text-center">
-            <h3 className="mt-4 mb-3 bordercolortitle pb-3" >Reserva tu Lugar</h3>
+        <div className="text-center backgroundimage">
+            <Image src={reservatulugar} fluid alt="" />
             <Tab.Container>
                 <Row className="justify-content-center mx-0 mx-md-5 formheight">
 
@@ -44,7 +46,7 @@ export default function Bookings() {
                     }
                 </Row>
                 <Row className="justify-content-center">
-                    <Tab.Content className="mt-5">
+                    <Tab.Content className="mt-2">
                         <Container className="d-flex flex-column justify-content-center mt-4 mt-lg-5" >
                         {
                             active === 'alojamiento' ? <Accommodation /> :
