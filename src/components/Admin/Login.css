@@ -1,0 +1,21 @@
+.borderinput{
+    border: 1px #ff6501 solid;
+}
+.btncolor{
+    transition: linear 0.5s;
+    font-weight: bold;
+    background-color:  #ff6501;
+    border-color: #ff6501;
+}
+.btncolor:hover{
+    transition: linear 0.5s;
+    font-weight: bold;
+    color: black;
+    background-color:  #3cfe00;
+    border-color: #3cfe00;
+}
+
+.nose{
+    max-width: 900px;
+    width: 15%;
+}

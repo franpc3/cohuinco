@@ -1,14 +1,25 @@
 import React from 'react';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import Admin from './components/Admin/Admin';
 import Home from './components/Home/Home';
 
 function App() {
   return (
-        <div> 
+    <Router>
+      <Switch>
+        <Route path="/admin">
+            <Admin />
+        </Route>
+        <Route path="/">
           <Home />
-        </div>
-       
-   
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
