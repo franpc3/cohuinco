@@ -1,22 +1,24 @@
 import React from 'react'
-import { Container, Row, Col, Nav, Tab, Table, Form, Button, Image, Navbar, InputGroup, FormControl } from 'react-bootstrap';
+import { Container, Row, Col, Nav, Tab, Table, Form, Button, Image, Navbar, FormControl } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faConciergeBell, faWater, faEdit, faTrashAlt, faSearch } from '@fortawesome/free-solid-svg-icons';
 import admin from '../Images/admin.png'
+import adminmobile from '../Images/adminmobile.png'
 import './Dashboard.css'
 
 export default function Dashboard() {
     return (
         <>
-            <Image fluid src={admin} alt="" />
+            <Image fluid src={admin} className="d-none d-md-block" alt="" />
+            <Image fluid src={adminmobile} className="d-block d-md-none" alt="" />
             <Container fluid>
                 <Tab.Container id="left-tabs-example" defaultActiveKey="first" >
                     <Row className="mt-5">
-                        <Col xs={12} lg={3} className="heightselect">
+                        <Col xs={12} lg={3} className="heightselect mb-3 mb-lg-0">
                             <h4>Seleccione </h4>
                             <Nav variant="pills" className="flex-column">
                                 <Nav.Item>
-                                    <Nav.Link eventKey="first"> <FontAwesomeIcon className="mr-2" icon={faConciergeBell} /> Rooms</Nav.Link>
+                                    <Nav.Link eventKey="first"> <FontAwesomeIcon className="mr-2" icon={faConciergeBell} />Rooms</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
                                     <Nav.Link eventKey="second">  <FontAwesomeIcon className="mr-2" icon={faWater} />Rafting</Nav.Link>
@@ -31,10 +33,10 @@ export default function Dashboard() {
                                 <Navbar className="bg-light text-center justify-content-center justify-content-lg-start">
                                    
 
-                                        <Col xs={4} lg={2} className="my-2 my-lg-0" >
+                                        <Col xs={6} lg={2} className="my-2 my-lg-0" >
                                             <FormControl type="text" className=" mr-sm-2" />
                                         </Col>
-                                        <Col xs={3} lg={2}>
+                                        <Col xs={5} lg={2}>
                                             <Button type="submit" className="btncolor"> <FontAwesomeIcon className="mr-2" icon={faSearch} />Buscar</Button>
                                         </Col>
                                         <Col  lg={6} className="text-right d-none d-lg-block " >

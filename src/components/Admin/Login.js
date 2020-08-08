@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Form, Button, Image, Alert } from 'react-bootstrap';
 import './Login.css';
 import ingresar from '../Images/ingresar.png'
+import ingresarmobile from '../Images/ingresarmobile.png'
 
 export default function Login({setLogin}) {
 
@@ -22,7 +23,8 @@ export default function Login({setLogin}) {
 
     return ( 
         <>
-            <Image src={ingresar} fluid alt="ingresar" />
+            <Image src={ingresar} fluid className="d-none d-md-block" alt="ingresar" />
+            <Image fluid src={ingresarmobile} className="d-block d-md-none" alt="" />
             <div className="d-flex justify-content-center align-content-center mt-5 ">
 
                 <Form className="d-flex flex-column align-content-center text-center nose" onSubmit={event =>handleSubmit(event)} >

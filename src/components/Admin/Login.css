@@ -17,5 +17,11 @@
 
 .nose{
     max-width: 900px;
-    width: 15%;
+    width: 20%;
+}
+@media (max-width: 768px) {
+    .nose{
+        max-width: 900px;
+        width: 70%;
+    } 
 }
