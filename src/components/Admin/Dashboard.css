@@ -9,3 +9,10 @@
     font-size: large;
 }
     
+.heightselect {
+    margin-top: 20px;
+}
+.form-control:focus{
+    border-color: #fd8332;
+    box-shadow:  none;
+}
