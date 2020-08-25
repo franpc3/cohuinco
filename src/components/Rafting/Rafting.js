@@ -1,5 +1,7 @@
 import React from 'react'
 import { Form, Button, Col, InputGroup, FormControl } from 'react-bootstrap';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShuttleVan } from '@fortawesome/free-solid-svg-icons';
 import './Rafting.css';
 
 export default function Rafting({ setConfirm }) {
@@ -34,7 +36,7 @@ export default function Rafting({ setConfirm }) {
             <Form.Group  controlId="formGridCity" className="my-3 font-weight-bold">
                     <div class="custom-control custom-switch">
                         <input type="checkbox" class="custom-control-input" id="customSwitch1" />
-                        <label class="custom-control-label" for="customSwitch1">Traslado</label>
+                        <label class="custom-control-label" for="customSwitch1"><FontAwesomeIcon className="mr-2 fa-lg textorange" icon={faShuttleVan} />Traslado</label>
                     </div>
             </Form.Group>
         
