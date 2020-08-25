@@ -13,3 +13,13 @@
     background-color:  #3cfe00;
     border-color: #3cfe00;
 }
+.btnorange{
+    font-weight: bold;
+    background-color:  #ff6501;
+    border-color: #ff6501;
+}
+.btnorange:hover{
+    font-weight: bold;
+    background-color:  #ff6501;
+    border-color: #ff6501;
+}

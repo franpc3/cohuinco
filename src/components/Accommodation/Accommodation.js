@@ -1,67 +1,100 @@
-import React from 'react'
-import { Form, Button, Col } from 'react-bootstrap';
+import React from "react";
+import { Form, Button, Col, InputGroup, FormControl } from "react-bootstrap";
+import "./Accommodation.css";
 
-import './Accommodation.css'
+export default function Accommodation({ setConfirm }) {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    setConfirm(true);
+  };
 
+  return (
+    <>
+      <h4 className="mb-3">Alojamiento</h4>
+      <Form className="formwidth" onSubmit={handleSubmit}>
+        <Form.Row className="mb-3">
+          <Form.Group
+            as={Col}
+            controlId="formGroup"
+            className="mb-3 font-weight-bold"
+          >
+            <Form.Label>Ingreso</Form.Label>
+            <input
+              placeholder="Ingresá la hora"
+              name="date"
+              type="date"
+              className="form-control"
+            />
+          </Form.Group>
 
+          <Form.Group
+            as={Col}
+            controlId="formGroup"
+            className="mb-3 font-weight-bold"
+          >
+            <Form.Label>Salida </Form.Label>
+            <input
+              placeholder="Ingresá la hora"
+              name="date"
+              type="date"
+              className="form-control"
+            />
+          </Form.Group>
+        </Form.Row>
 
-export default function Accommodation() {
+        <Form.Group
+          controlId="exampleForm.SelectCustom"
+          className="mb-3 font-weight-bold"
+        >
+          <Form.Label>Habitación</Form.Label>
+          <Form.Control as="select" custom>
+            <option>Elegi una opción</option>
+            <option>hab. compartida $550 </option>
+            <option>Base Doble $1500</option>
+            <option>Base Triple $1900</option>
+            <option>Base Cuádruple $2500</option>
+          </Form.Control>
+        </Form.Group>
 
-    return (
-        <>
-            <h4 className="mb-3">Alojamiento</h4>
-            <Form className="formwidth" >
-                <Form.Row className="mb-3">
-                    <Form.Group as={Col} controlId="formGroupEmail" className="mb-3 font-weight-bold">
-                        <Form.Label>Desde</Form.Label>
-                        <input
-                            placeholder="Ingresá la hora"
-                            name="date"
-                            type='date'
-                            className="form-control"
-                        />
-                    </Form.Group>
-
-                    <Form.Group as={Col} controlId="formGroupEmail" className="mb-3 font-weight-bold">
-                        <Form.Label>Hasta </Form.Label>
-                        <input
-                            placeholder="Ingresá la hora"
-                            name="date"
-                            type='date'
-                            className="form-control"
-                        />
-                    </Form.Group>
-                </Form.Row>
-
-                <Form.Group controlId="formGroupEmail" className="mb-3 font-weight-bold">
-                    <Form.Label>Direccion de mail</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
-                </Form.Group>
-
-
-                <Form.Group controlId="formGridCity" className="mb-3 font-weight-bold">
-                    <Form.Label>Pais</Form.Label>
-                    <Form.Control type="text" placeholder="Ingresa su Pais" />
-                </Form.Group>
-
-
-                <Form.Row className="mb-3">
-                    <Form.Group className="col-8 font-weight-bold" controlId="formGridState">
-                        <Form.Label>Provincia</Form.Label>
-                        <Form.Control type="text" placeholder="Ingresa su Provincia" />
-                    </Form.Group>
-
-                    <Form.Group className="col-4 font-weight-bold" controlId="formGridZip">
-                        <Form.Label>Codigo Postal</Form.Label>
-                        <Form.Control placeholder="Ingresa tu codigo postal"/>
-                    </Form.Group>
-                </Form.Row>
-                <Button variant="success" type="submit" className="btncolor px-5">
-                    Reservar
+        <Form.Row className="mb-3 mt-5 font-weight-bold">
+          <Form.Group as={Col}>
+            <Form.Label>Adultos</Form.Label>
+            <InputGroup className="mb-3 ">
+              <InputGroup.Prepend>
+                <Button variant="success" className="btnorange">
+                  -
                 </Button>
-
-
-            </Form>
-        </>
-    );
+              </InputGroup.Prepend>
+              <FormControl />
+              <InputGroup.Append>
+                <Button variant="success" className="btnorange">
+                  +
+                </Button>
+              </InputGroup.Append>
+            </InputGroup>
+          </Form.Group>
+          <Form.Group as={Col}>
+            <Form.Label>Niños</Form.Label>
+            <InputGroup className="mb-3 ">
+              <InputGroup.Prepend>
+                <Button variant="success" className="btnorange">
+                  -
+                </Button>
+              </InputGroup.Prepend>
+              <FormControl />
+              <InputGroup.Append>
+                <Button variant="success" className="btnorange">
+                  +
+                </Button>
+              </InputGroup.Append>
+            </InputGroup>
+          </Form.Group>
+        </Form.Row>
+        <Button variant="success" type="submit" className="btncolor px-5">
+          Reservar
+        </Button>
+      </Form>
+    </>
+  );
 }
