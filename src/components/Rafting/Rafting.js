@@ -5,9 +5,8 @@ import { faShuttleVan } from "@fortawesome/free-solid-svg-icons";
 import moment from "moment";
 import "./Rafting.css";
 
-export default function Rafting({ setConfirm }) {
-    const [form, setForm] = useState({ in: moment().format("YYYY-MM-DD"), time: "", adults: 0, childs: 0, tranfer: false, address: ''}),
-    [disabled, setDisabled] = useState(true),
+export default function Rafting({ setConfirm, form, setForm }) {
+    const [disabled, setDisabled] = useState(true),
 
     handleChange = ({ target }) => setForm({ ...form, [target.name]: target.value }),
 

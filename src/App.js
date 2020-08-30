@@ -7,8 +7,11 @@ import {
 } from "react-router-dom";
 import Admin from './components/Admin/Admin';
 import Home from './components/Home/Home';
+import axios from 'axios';
 
 function App() {
+  axios.defaults.baseURL = 'http://localhost:3000';
+  
   return (
     <Router>
       <Switch>

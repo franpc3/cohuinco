@@ -2,20 +2,41 @@ import React, { useState, useEffect } from "react";
 import { Form, Button, Row, Col, FormControl, Modal } from "react-bootstrap";
 import { faLongArrowAltLeft, faCreditCard } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from 'axios';
 import "./Confirm.css";
 
-export default function Confirm({ setConfirm }) {
-  const [form, setForm] = useState({name: '', surname: '', phone: '', mail: '', terms: 'false'}),
-  [disabled, setDisabled] = useState(true),
+export default function Confirm({ setConfirm, form, setForm}) {
+  const [disabled, setDisabled] = useState(true),
   [show, setShow] = useState(false),
   
   handleShow = () => setShow(true),
   handleClose = () => setShow(false),
+
   handleChange = ({target}) => setForm({...form, [target.name]: target.value}),
+
   handleSubmit = (event) => {
     event.preventDefault();
     event.stopPropagation();
     if (disabled) return;
+    axios.post(`/bookings`, { 
+      bookingDate: {
+        endDate: form.in,
+        startDate: form.out
+      },
+      dniUser: form.dni,
+      lastNameUser: form.surname,
+      firstNameUser: form.name,
+      phoneNumber: form.phone,
+      mailUser: form.mail,
+      roomType: form.room,
+      adults: form.adults,
+      kids: form.childs
+    }).then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   useEffect(() => {
@@ -46,27 +67,20 @@ export default function Confirm({ setConfirm }) {
 
             <Form.Group as={Col} className="mb-3 font-weight-bold">
               <Form.Label>Apellido</Form.Label>
-              <FormControl
-                placeholder="Ingrese Apellido"
-                name="surname"
-                onChange={handleChange}
-                type="text"
-                className="form-control"
-              />
+              <FormControl placeholder="Ingrese Apellido" name="surname" onChange={handleChange} type="text" className="form-control" />
             </Form.Group>
           </Form.Row>
           <Form.Group className="mb-3 font-weight-bold">
             <Form.Label>Teléfono</Form.Label>
-            <Form.Control
-              name="phone"
-              type="text"
-              onChange={handleChange}
-              placeholder="Ingrese Teléfono"
-            />
+            <Form.Control name="phone" type="text" onChange={handleChange} placeholder="Ingrese Teléfono" />
           </Form.Group>
           <Form.Group className="mb-3 font-weight-bold">
             <Form.Label>Mail</Form.Label>
             <Form.Control name="mail" type="text" placeholder="Ingrese Mail" onChange={handleChange} />
+          </Form.Group>
+          <Form.Group className="mb-3 font-weight-bold">
+            <Form.Label>DNI</Form.Label>
+            <Form.Control name="dni" type="text" placeholder="Ingrese su dni" onChange={handleChange} />
           </Form.Group>
           <Form.Row className="justify-content-center">
             <Form.Group className="pt-2 font-weight-bold"> 

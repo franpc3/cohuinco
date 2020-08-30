@@ -1,16 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { faConciergeBell, faWater } from '@fortawesome/free-solid-svg-icons';
 import {Container, Row, Col, Tab, ListGroup} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Accommodation from '../Accommodation/Accommodation';
+import Confirm from '../Confirm/Confirm';
 import Rafting from '../Rafting/Rafting';
 import Footer from '../Footer/Footer';
+import moment from 'moment';
 import './Bookings.css';
-import Confirm from '../Confirm/Confirm';
 
 export default function Bookings() {
-    const [active, setActive] = useState('alojamiento'),
+    const [form, setForm] = useState({ in: moment().format('YYYY-MM-DD'), out: moment().format('YYYY-MM-DD'), room: '', adults: 0, childs: 0, name: '', surname: '', phone: '', mail: '', terms: false, dni: '' }),
+    [active, setActive] = useState('alojamiento'),
     [confirm, setConfirm] = useState(false);
+
+    useEffect(() => {
+        active === 'alojamiento' ? setForm({ in: moment().format('YYYY-MM-DD'), out: moment().format('YYYY-MM-DD'), room: '', adults: 0, childs: 0, name: '', surname: '', phone: '', mail: '', terms: false, dni: '' }) :
+        setForm({ in: moment().format("YYYY-MM-DD"), time: "", adults: 0, childs: 0, tranfer: false, address: '', name: '', surname: '', phone: '', mail: '', terms: false, dni: '' });
+    }, [active]);
 
     return (
         <div className="text-center px-2">
@@ -34,14 +41,14 @@ export default function Bookings() {
                             <Tab.Content className="mt-2">
                                 <Container className="d-flex flex-column justify-content-center mt-4 mt-lg-5" >
                                 {
-                                    active === 'alojamiento' ? <Accommodation setConfirm={setConfirm} /> :
-                                        <Rafting setConfirm={setConfirm} />
+                                    active === 'alojamiento' ? <Accommodation setConfirm={setConfirm} form={form} setForm={setForm} /> 
+                                    : <Rafting setConfirm={setConfirm} form={form} setForm={setForm} />
                                 }
                                 </Container>
                             </Tab.Content>
                         </Row>
                     </> :
-                    <Confirm setConfirm={setConfirm} />
+                    <Confirm setConfirm={setConfirm} form={form} setForm={setForm} />
                 }
             </Tab.Container>
             <Footer />

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Form, Button, Col, InputGroup, FormControl } from "react-bootstrap";
+import { Alert, Form, Button, Col, InputGroup, FormControl } from "react-bootstrap";
 import "./Accommodation.css";
 import moment from 'moment';
+import axios from 'axios';
 
-export default function Accommodation({ setConfirm }) {
-  const [form, setForm] = useState({ in: moment().format('YYYY-MM-DD'), out: moment().format('YYYY-MM-DD'), room: '', adults: 0, childs: 0 }),
-  [disabled, setDisabled] = useState(true),
+export default function Accommodation({ setConfirm, form, setForm }) {
+  const [disabled, setDisabled] = useState(true),
+  [errorMsg, setErrorMsg] = useState(""),
 
   handleChange = ({target}) => setForm({...form, [target.name]: target.value}),
 
@@ -22,7 +23,20 @@ export default function Accommodation({ setConfirm }) {
     event.preventDefault();
     event.stopPropagation();
     if (disabled) return;
-    setConfirm(true);
+    axios.get(`/bookings`)
+      .then(function (response) {
+        console.log(response);
+        if (response.status === 200) {
+            //response.data => [bookings]
+            setConfirm(true);
+        } else {
+            //setErrorMsg(response.msg);
+            setErrorMsg("Hubo un error");
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   useEffect(() => {
@@ -62,10 +76,10 @@ export default function Accommodation({ setConfirm }) {
             <Form.Label>Habitación</Form.Label>
             <Form.Control as="select" name="room" custom value={form.room} onChange={handleChange}>
             <option value=''>Elegi una opción</option>
-            <option value='550'>hab. compartida $550 </option>
-            <option value='1500'>Base Doble $1500</option>
-            <option value='1900'>Base Triple $1900</option>
-            <option value='2500'>Base Cuádruple $2500</option>
+            <option value='1'>hab. compartida $550 </option>
+            <option value='2'>Base Doble $1500</option>
+            <option value='3'>Base Triple $1900</option>
+            <option value='4'>Base Cuádruple $2500</option>
             </Form.Control>
         </Form.Group>
 
@@ -103,6 +117,9 @@ export default function Accommodation({ setConfirm }) {
                 </InputGroup>
             </Form.Group>
         </Form.Row>
+        <Alert dismissible show={errorMsg !== ''} onClose={() => setErrorMsg('')} variant="warning">
+            {errorMsg}
+        </Alert>
         <Button variant="success" type="submit" className="btncolor px-5" disabled={disabled}>
             Reservar
         </Button>
