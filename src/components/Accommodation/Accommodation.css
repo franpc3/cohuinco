@@ -6,6 +6,11 @@
     background-color:  #ff6501;
     border-color: #ff6501;
 }
+.btncolor:disabled{
+    font-weight: bold;
+    background-color:  #ff6501;
+    border-color: #ff6501;
+}
 .btncolor:hover{
     transition: linear 0.5s;
     font-weight: bold;
@@ -17,6 +22,11 @@
     font-weight: bold;
     background-color:  #ff6501;
     border-color: #ff6501;
+}
+.btnorange:disabled{
+    font-weight: bold;
+    background-color:  #f87a26;
+    border-color: #ff781e;
 }
 .btnorange:hover{
     font-weight: bold;
