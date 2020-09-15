@@ -31,24 +31,17 @@ export default function Dashboard() {
                                 <Col xs={12} lg={4} className="text-center mt-2 d-block d-lg-none">
                                     <Button variant="dark" className="px-5 btncolor" >New</Button>
                                 </Col>
-                                <Navbar className="bg-light text-center justify-content-center justify-content-lg-start">
-                                   
-
-                                        <Col xs={6} lg={2} className="my-2 my-lg-0" >
+                                <Row className="bg-trasparent text-center d-flex flex-row justify-content-center justify-content-lg-start py-2">
+                                        <Col xs={12} lg={4} className="my-2 my-lg-0 d-flex flex-row" >
                                             <FormControl type="text" className=" mr-sm-2" />
+                                            <Button type="submit" className="btncolor mx-2"> <FontAwesomeIcon className="mx-2" icon={faSearch} /></Button>
                                         </Col>
-                                        <Col xs={5} lg={2}>
-                                            <Button type="submit" className="btncolor"> <FontAwesomeIcon className="mr-2" icon={faSearch} />Buscar</Button>
-                                        </Col>
-                                        <Col  lg={6} className="text-right d-none d-lg-block " >
+                                        <Col xs={12} lg={6} className="text-center text-lg-right" >
                                             <AddRoomModal />
                                         </Col>
-                                    
-
-
-                                </Navbar>
+                                </Row>
                             </Form>
-                            <Tab.Content className="boxshadow">
+                            <Tab.Content className="boxshadow bg-white">
                                 <Tab.Pane eventKey="first">
                                     <Table responsive  >
                                         <thead>

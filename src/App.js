@@ -10,7 +10,7 @@ import Home from './components/Home/Home';
 import axios from 'axios';
 
 function App() {
-  axios.defaults.baseURL = 'http://localhost:3000';
+  axios.defaults.baseURL = 'http://localhost:3000'; /* https://us-central1-test-cohuinco.cloudfunctions.net/app/ */
   
   return (
     <Router>

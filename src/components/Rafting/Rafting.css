@@ -2,3 +2,6 @@
     border-color: #ff6501 !important;
     background-color: #ff6501 !important;
 }
+input {
+    z-index: 3 !important;
+}

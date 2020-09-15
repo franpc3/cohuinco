@@ -37,12 +37,12 @@ export default function Rafting({ setConfirm, form, setForm }) {
             <Form.Group>
                 <Form.Label className="font-weight-bold">Dia</Form.Label>
                 <input
-                value={form.in}
-                min={moment().format("YYYY-MM-DD")}
-                name="in"
-                type="date"
-                className="form-control"
-                onChange={handleChange}
+                    value={form.in}
+                    min={moment().format("YYYY-MM-DD")}
+                    name="in"
+                    type="date"
+                    className="form-control"
+                    onChange={handleChange}
                 />
             </Form.Group>
             <Form.Group className="mb-2 font-weight-bold">
@@ -55,13 +55,8 @@ export default function Rafting({ setConfirm, form, setForm }) {
             </Form.Group>
 
             <Form.Group className="my-3 font-weight-bold">
-                <div className="custom-control custom-switch">
-                    <input
-                        value={form.transfer}
-                        onChange={({target}) => setForm({...form, transfer: target.checked})}
-                        type="checkbox"
-                        className="custom-control-input"
-                    />
+                <Form.Check inline checked={form.transfer} label="Traslado" type="switch" onChange={({target}) => {setForm({...form, transfer: target.checked}); console.log('target', target)}} />
+                {/* <div className="custom-control custom-switch">
                     <label className="custom-control-label">
                         <FontAwesomeIcon
                         className="mr-2 fa-lg textorange"
@@ -69,18 +64,21 @@ export default function Rafting({ setConfirm, form, setForm }) {
                         />
                         Traslado
                     </label>
-                </div>
+                </div> */}
             </Form.Group>
 
-            <Form.Group className="mb-2 font-weight-bold">
-                <Form.Label>Dirección</Form.Label>
-                <Form.Control
-                    type="text"
-                    placeholder="Ingresa su Dirección"
-                    name="address"
-                    onChange={handleChange}
-                />
-            </Form.Group>
+            {form.transfer &&
+                <Form.Group className="mb-2 font-weight-bold">
+                    <Form.Label>Dirección</Form.Label>
+                    <Form.Control
+                        type="text"
+                        placeholder="Ingresa su Dirección"
+                        name="address"
+                        onChange={handleChange}
+                    />
+                </Form.Group>
+            }
+            
             <Form.Group className="font-weight-bold">
                 <Form.Label>Tipo</Form.Label>
                 <Form.Control as="select" custom name="time" value={form.time} onChange={handleChange}>
