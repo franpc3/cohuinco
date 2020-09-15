@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Row, Col, Nav, Tab, Table, Form, Button, Image, Navbar, FormControl } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faConciergeBell, faWater, faEdit, faTrashAlt, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faConciergeBell, faWater, faEdit, faTrashAlt, faSearch, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import admin from '../Images/admin.png'
 import adminmobile from '../Images/adminmobile.png'
 import './Dashboard.css'
@@ -11,7 +11,7 @@ export default function Dashboard() {
         <>
             <Image fluid src={admin} className="d-none d-md-block" alt="" />
             <Image fluid src={adminmobile} className="d-block d-md-none" alt="" />
-            <Container fluid>
+            <Container fluid >
                 <Tab.Container id="left-tabs-example" defaultActiveKey="first" >
                     <Row className="mt-5">
                         <Col xs={12} lg={3} className="heightselect mb-3 mb-lg-0">
@@ -25,7 +25,7 @@ export default function Dashboard() {
                                 </Nav.Item>
                             </Nav>
                         </Col>
-                        <Col xs={12} lg={9}>
+                        <Col xs={12} lg={9} >
                             <Form >
                                 <Col xs={12} lg={4} className="text-center mt-2 d-block d-lg-none">
                                     <Button variant="dark" className="px-5 btncolor" >New</Button>
@@ -47,42 +47,25 @@ export default function Dashboard() {
 
                                 </Navbar>
                             </Form>
-                            <Tab.Content>
+                            <Tab.Content className="boxshadow">
                                 <Tab.Pane eventKey="first">
-                                    <Table responsive className="bg-light" >
+                                    <Table responsive  >
                                         <thead>
-                                            <tr >
-                                                <th><Form.Check type="checkbox" /></th>
+                                            <tr className="bgorange">
                                                 <th>Room Number</th>
                                                 <th>Floor</th>
-                                                <th>Description</th>
+                                                <th>Descripcion</th>
+                                                <th>Habilitado</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><Form.Check type="checkbox" /></td>
-                                                <td>101</td>
+                                                <td><FontAwesomeIcon icon={faCaretRight} className="mr-2 mt-1 fa-lg" />101</td>
                                                 <td>1</td>
                                                 <td>Simple room</td>
+                                                <td>Ocupado</td>
                                                 <td> <Button variant="light"><FontAwesomeIcon icon={faEdit} className="text-warning" /></Button> <Button variant="light"><FontAwesomeIcon icon={faTrashAlt} className="text-danger" /></Button></td>
-
-                                            </tr>
-                                            <tr>
-                                                <td><Form.Check type="checkbox" /></td>
-                                                <td>102</td>
-                                                <td>1</td>
-                                                <td>Simple room</td>
-                                                <td> <Button variant="light"><FontAwesomeIcon icon={faEdit} className="text-warning" /></Button> <Button variant="light"><FontAwesomeIcon icon={faTrashAlt} className="text-danger" /></Button></td>
-
-                                            </tr>
-                                            <tr>
-                                                <td><Form.Check type="checkbox" /></td>
-                                                <td>101</td>
-                                                <td>2</td>
-                                                <td>Family room</td>
-                                                <td> <Button variant="light"><FontAwesomeIcon icon={faEdit} className="text-warning" /></Button> <Button variant="light"><FontAwesomeIcon icon={faTrashAlt} className="text-danger" /></Button></td>
-
                                             </tr>
                                         </tbody>
                                     </Table>

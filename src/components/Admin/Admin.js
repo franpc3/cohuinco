@@ -7,7 +7,8 @@ export default function Admin() {
      const [login, setLogin] = useState(false); 
     return (
         <div>
-             {login ? <Dashboard /> : <Login setLogin={setLogin} />} 
+             <Dashboard />
+        {/* {login ? : <Login setLogin={setLogin} />}  */}
         </div>
     )
 }
