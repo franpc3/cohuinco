@@ -5,6 +5,7 @@ import { faConciergeBell, faWater, faEdit, faTrashAlt, faSearch, faCaretRight } 
 import admin from '../Images/admin.png'
 import adminmobile from '../Images/adminmobile.png'
 import './Dashboard.css'
+import AddRoomModal from './AddRoomModal';
 
 export default function Dashboard() {
     return (
@@ -40,7 +41,7 @@ export default function Dashboard() {
                                             <Button type="submit" className="btncolor"> <FontAwesomeIcon className="mr-2" icon={faSearch} />Buscar</Button>
                                         </Col>
                                         <Col  lg={6} className="text-right d-none d-lg-block " >
-                                            <Button variant="dark" className="px-5 btncolor" >New</Button>
+                                            <AddRoomModal />
                                         </Col>
                                     
 

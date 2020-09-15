@@ -34,7 +34,7 @@ export default function Rafting({ setConfirm, form, setForm }) {
     return (
         <Form className="formwidth" onSubmit={handleSubmit}>
             <h4 className="mb-3">Rafting</h4>
-            <Form.Group className="mb-2">
+            <Form.Group>
                 <Form.Label className="font-weight-bold">Dia</Form.Label>
                 <input
                 value={form.in}
@@ -81,11 +81,20 @@ export default function Rafting({ setConfirm, form, setForm }) {
                     onChange={handleChange}
                 />
             </Form.Group>
+            <Form.Group className="font-weight-bold">
+                <Form.Label>Tipo</Form.Label>
+                <Form.Control as="select" custom name="time" value={form.time} onChange={handleChange}>
+                    <option value="">Elegi una opción</option>
+                    <option value="mañana">Familiar Steffen Grado 1</option>
+                    <option value="tarde">Familiar Rio Manso grado2</option>
+                    <option value="tarde">Frontera al Límite grado 4</option>
+                </Form.Control>
+            </Form.Group>
 
-            <Form.Row className="mb-2 mt-2 font-weight-bold">
+            <Form.Row className="font-weight-bold">
                 <Form.Group as={Col}>
                     <Form.Label>Adultos</Form.Label>
-                    <InputGroup className="mb-3 ">
+                    <InputGroup >
                         <InputGroup.Prepend>
                             <Button
                                 variant="success"
@@ -153,7 +162,7 @@ export default function Rafting({ setConfirm, form, setForm }) {
                 </Form.Group>
             </Form.Row>
             <Button variant="primary" type="submit" className="btncolor px-5" disabled={disabled}>
-                Reservar
+                Siguiente
             </Button>
         </Form>
     );
