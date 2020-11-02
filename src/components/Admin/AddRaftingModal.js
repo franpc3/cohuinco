@@ -78,39 +78,25 @@ export default function AddRoomModal() {
               </Form.Row>
               <Form.Row className="mb-1">
               <Form.Group as={Col} className="mb-1 font-weight-bold">
-                <Form.Label>Dia</Form.Label>
+                <Form.Label>Ingreso</Form.Label>
                 <input name="in" type="date" className="form-control" />
               </Form.Group>
               <Form.Group as={Col} className="mb-1 font-weight-bold">
-              <Form.Label>Turno</Form.Label>
-                <Form.Control as="select" custom name="time" >
-                    <option value="">Elegi una opción</option>
-                    <option value="mañana">Mañana</option>
-                    <option value="tarde">Tarde</option>
-                </Form.Control>
+                <Form.Label>Salida</Form.Label>
+                <input name="out" type="date" className="form-control" />
               </Form.Group>
             </Form.Row>
 
-            <Form.Row className="mb-1">
-              <Form.Group as={Col} className="mb-1 font-weight-bold">
-              <Form.Label>Tipo</Form.Label>
-                <Form.Control as="select" custom name="time" >
-                    <option value="">Elegi una opción</option>
-                    <option value="mañana">Familiar Steffen Grado 1</option>
-                    <option value="tarde">Familiar Rio Manso grado2</option>
-                    <option value="tarde">Frontera al Límite grado 4</option>
-                </Form.Control>
-              </Form.Group>
-              <Form.Group as={Col} className="mb-1 font-weight-bold">
-              <Form.Label>Traslado</Form.Label>
-                <Form.Control
-                  name="text"
-                  type="text"
-                  placeholder="Ingrese Direccion (opcional)"
-                 
-                />
-              </Form.Group>
-            </Form.Row>
+            <Form.Group className="mb-1 font-weight-bold">
+              <Form.Label>Habitación</Form.Label>
+              <Form.Control as="select" name="room" custom>
+                <option value="">Elegi una opción</option>
+                <option value="1">hab. compartida $550 </option>
+                <option value="2">Base Doble $1500</option>
+                <option value="3">Base Triple $1900</option>
+                <option value="4">Base Cuádruple $2500</option>
+              </Form.Control>
+            </Form.Group>
 
             <Form.Row className="mb-1 mt-1 font-weight-bold">
               <Form.Group as={Col}>

@@ -6,8 +6,25 @@ body {
     background-repeat: repeat;
     background-size: contain;
 }
+.marginx{
+    margin-left:  25vw;
+    margin-right: 25vw;
+}
 
 .btnsave {
     border-color: #ff6501 !important;
     background-color: #ff6501 !important;
+}
+
+@media (max-width: 768px){
+    .marginx{
+        margin-left: 10vw;
+        margin-right: 10vw;
+    }
+}
+@media (max-width: 450px){
+    .marginx{
+        margin-left: 3vw;
+        margin-right: 3vw;
+    }
 }

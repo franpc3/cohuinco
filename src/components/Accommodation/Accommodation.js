@@ -7,14 +7,24 @@ import axios from 'axios';
 export default function Accommodation({ setConfirm, form, setForm }) {
   const [disabled, setDisabled] = useState(true),
   [errorMsg, setErrorMsg] = useState(""),
+  [max, setMax] = useState(10),
 
-  handleChange = ({target}) => setForm({...form, [target.name]: target.value}),
+  handleChange = ({target}) => {
+    setForm({...form, [target.name]: target.value});
+    if (target.value < 2) {
+        setMax(10);
+    } else {
+        setMax(target.value);
+        if (form.adults + form.childs > target.value) {
+            setForm({...form, adults: 0, childs: 0});
+        }
+    }
+  },
 
   changeQty = (name, op) => {
     if (op === '-' && form[name] > 0) {
       setForm({...form, [name]: form[name] - 1});
-    }
-    else if (op === '+' && form[name] < 10) {
+    } else if (op === '+' && form[name] < max) {
       setForm({...form, [name]: form[name] + 1});
     }
   },
@@ -75,11 +85,11 @@ export default function Accommodation({ setConfirm, form, setForm }) {
         <Form.Group className="mb-3 font-weight-bold">
             <Form.Label>Habitación</Form.Label>
             <Form.Control as="select" name="room" custom value={form.room} onChange={handleChange}>
-            <option value=''>Elegi una opción</option>
-            <option value='1'>hab. compartida $550 </option>
-            <option value='2'>Base Doble $1500</option>
-            <option value='3'>Base Triple $1900</option>
-            <option value='4'>Base Cuádruple $2500</option>
+            <option value={0}>Elegi una opción</option>
+            <option value={1}>Hab. compartida ${550 * ((form.adults + form.childs) || 1)} </option>
+            <option value={2}>Base Doble $1500</option>
+            <option value={3}>Base Triple $1900</option>
+            <option value={4}>Base Cuádruple $2500</option>
             </Form.Control>
         </Form.Group>
 
@@ -92,9 +102,9 @@ export default function Accommodation({ setConfirm, form, setForm }) {
                         -
                     </Button>
                     </InputGroup.Prepend>
-                    <FormControl value={form.adults} name="adults" type="number" placeholder="0" onChange={handleChange} min={0} max={10} />
+                    <FormControl value={form.adults} name="adults" type="number" placeholder="0" onChange={handleChange} min={0} max={max - form.childs} />
                     <InputGroup.Append>
-                    <Button variant="success" className="btnorange" onClick={() => changeQty('adults', '+')} disabled={form.adults > 9}>
+                    <Button variant="success" className="btnorange" onClick={() => changeQty('adults', '+')} disabled={form.adults >= (max - form.childs)}>
                         +
                     </Button>
                     </InputGroup.Append>
@@ -108,9 +118,9 @@ export default function Accommodation({ setConfirm, form, setForm }) {
                         -
                     </Button>
                     </InputGroup.Prepend>
-                    <FormControl value={form.childs} name="childs" type="number" placeholder="0" onChange={handleChange} min={0} max={10} />
+                    <FormControl value={form.childs} name="childs" type="number" placeholder="0" onChange={handleChange} min={0} max={max - form.adults} />
                     <InputGroup.Append>
-                    <Button variant="success" className="btnorange" onClick={() => changeQty('childs', '+')} disabled={form.childs > 9}>
+                    <Button variant="success" className="btnorange" onClick={() => changeQty('childs', '+')} disabled={form.childs >= (max - form.adults)}>
                         +
                     </Button>
                     </InputGroup.Append>

@@ -1,12 +1,11 @@
 import React from 'react'
-import { Container, Row, Col, Nav, Tab, Table, Form, Button, Image, Navbar, FormControl } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faConciergeBell, faWater, faEdit, faTrashAlt, faSearch, faCaretRight } from '@fortawesome/free-solid-svg-icons';
-import admin from '../Images/admin.png'
-import adminmobile from '../Images/adminmobile.png'
+import { Container, Row, Col, Nav, Tab, Table, Form, Button, Image, FormControl } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import adminmobile from '../Images/adminmobile.png';
 import AddRoomModal from './AddRoomModal';
-import AddRaftingModal from './AddRaftingModal';
-import './Dashboard.css'
+import admin from '../Images/admin.png';
+import './Dashboard.css';
 
 export default function Dashboard() {
     return (
@@ -27,84 +26,81 @@ export default function Dashboard() {
                                 </Nav.Item>
                             </Nav>
                         </Col>
-                        <Col xs={12} lg={9}>
-                            
-                            <Tab.Content className=" border-0">
-                                <Tab.Pane eventKey="first" >
-                                    <Form>
-                                        <Row className="bg-trasparent text-center d-flex flex-row justify-content-center justify-content-lg-start py-2">
-                                                <Col xs={12} lg={4} className="my-2 my-lg-0 d-flex flex-row" >
-                                                    <FormControl type="text" className=" mr-sm-2" />
-                                                    <Button type="submit" className="btncolor mx-2"> <FontAwesomeIcon className="mx-2" icon={faSearch} /></Button>
-                                                </Col>
-                                                <Col xs={12} lg={6} className="text-center text-lg-right" >
-                                                    <AddRoomModal />
-                                                </Col>
-                                        </Row>
-                                    </Form>
-                                    <Table responsive  className="bg-white boxshadow">
+                        <Col xs={12} lg={9} >
+                            <Form >
+                                <Col xs={12} lg={4} className="text-center mt-2 d-block d-lg-none">
+                                    <Button variant="dark" className="px-5 btncolor" >New</Button>
+                                </Col>
+                                <Row className="bg-trasparent text-center d-flex flex-row justify-content-center justify-content-lg-start py-2">
+                                        <Col xs={12} lg={4} className="my-2 my-lg-0 d-flex flex-row" >
+                                            <FormControl type="text" className=" mr-sm-2" />
+                                            <Button type="submit" className="btncolor mx-2"> <FontAwesomeIcon className="mx-2" icon={faSearch} /></Button>
+                                        </Col>
+                                        <Col xs={12} lg={6} className="text-center text-lg-right" >
+                                            <AddRoomModal />
+                                        </Col>
+                                </Row>
+                            </Form>
+                            <Tab.Content className="boxshadow bg-white">
+                                <Tab.Pane eventKey="first">
+                                    <Table responsive  >
                                         <thead>
-                                        <tr className="bgorange text-white">
-                                                <th>Dia</th>
-                                                <th>Hasta</th>
-                                                <th>Habitacion</th>
-                                                <th>Apellido, Nombre</th>
-                                                <th>Cantidad adultos</th>
-                                                <th>Cantidad niños</th>
+                                            <tr className="bgorange">
+                                                <th>Room Number</th>
+                                                <th>Floor</th>
+                                                <th>Descripcion</th>
+                                                <th>Habilitado</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>2/11/20</td>
-                                                <td>10/11/20</td>
-                                                <td>Cuarto 1</td>
-                                                <td>Ruiz, Julio</td>
+                                                <td><FontAwesomeIcon icon={faCaretRight} className="mr-2 mt-1 fa-lg" />101</td>
                                                 <td>1</td>
-                                                <td>1</td>
+                                                <td>Simple room</td>
+                                                <td>Ocupado</td>
                                                 <td> <Button variant="light"><FontAwesomeIcon icon={faEdit} className="text-warning" /></Button> <Button variant="light"><FontAwesomeIcon icon={faTrashAlt} className="text-danger" /></Button></td>
                                             </tr>
                                         </tbody>
                                     </Table>
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="second">
-                                    <Form >
-                                        <Row className="bg-trasparent text-center d-flex flex-row justify-content-center justify-content-lg-start py-2">
-                                                <Col xs={12} lg={4} className="my-2 my-lg-0 d-flex flex-row" >
-                                                    <FormControl type="text" className=" mr-sm-2" />
-                                                    <Button type="submit" className="btncolor mx-2"> <FontAwesomeIcon className="mx-2" icon={faSearch} /></Button>
-                                                </Col>
-                                                <Col xs={12} lg={6} className="text-center text-lg-right" >
-                                                    <AddRaftingModal />
-                                                </Col>
-                                        </Row>
-                                    </Form>
-                                    <Table responsive className="bg-white boxshadow" >
+                                    <Table responsive className="bg-light">
                                         <thead>
-                                            <tr className="bgorange text-white">
-                                                <th>Dia</th>
-                                                <th>Apellido, Nombre</th>
-                                                <th>Turno</th>
-                                                <th>Tipo</th>
-                                                <th>Traslado</th>
-                                                <th>Cantidad adultos</th>
-                                                <th>Cantidad niños</th>
+                                            <tr>
+                                                <th><Form.Check type="checkbox" /></th>
+                                                <th>Room Number</th>
+                                                <th>Floor</th>
+                                                <th>Description</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td> 2/11/20</td>
-                                                <td>Ruiz Julio</td>
-                                                <td>Mañana</td>
-                                                <td>Grado 1</td>
-                                                <td>No o lugar del traslado</td>
+                                                <td><Form.Check type="checkbox" /></td>
+                                                <td>101</td>
                                                 <td>1</td>
-                                                <td>1</td>
+                                                <td>Simple room</td>
                                                 <td> <Button variant="light"><FontAwesomeIcon icon={faEdit} className="text-warning" /></Button> <Button variant="light"><FontAwesomeIcon icon={faTrashAlt} className="text-danger" /></Button></td>
-                                            </tr>      
+
+                                            </tr>
+                                            <tr>
+                                                <td><Form.Check type="checkbox" /></td>
+                                                <td>102</td>
+                                                <td>1</td>
+                                                <td>Simple room</td>
+                                                <td> <Button variant="light"><FontAwesomeIcon icon={faEdit} className="text-warning" /></Button> <Button variant="light"><FontAwesomeIcon icon={faTrashAlt} className="text-danger" /></Button></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td><Form.Check type="checkbox" /></td>
+                                                <td>101</td>
+                                                <td>2</td>
+                                                <td>Family room</td>
+                                                <td> <Button variant="light"><FontAwesomeIcon icon={faEdit} className="text-warning" /></Button> <Button variant="light"><FontAwesomeIcon icon={faTrashAlt} className="text-danger" /></Button></td>
+                                            </tr>
                                         </tbody>
-                                    </Table>    
+                                    </Table>
                                 </Tab.Pane>
                             </Tab.Content>
                         </Col>

@@ -16,7 +16,7 @@ export default function Bookings() {
 
     useEffect(() => {
         active === 'alojamiento' ? setForm({ in: moment().format('YYYY-MM-DD'), out: moment().format('YYYY-MM-DD'), room: '', adults: 0, childs: 0, name: '', surname: '', phone: '', mail: '', terms: false, dni: '' }) :
-        setForm({ in: moment().format("YYYY-MM-DD"), time: "", adults: 0, childs: 0, tranfer: false, address: '', name: '', surname: '', phone: '', mail: '', terms: false, dni: '' });
+        setForm({ in: moment().format("YYYY-MM-DD"), time: "", type: 0, adults: 0, childs: 0, tranfer: false, address: '', name: '', surname: '', phone: '', mail: '', terms: false, dni: '' });
     }, [active]);
 
     return (
@@ -48,7 +48,7 @@ export default function Bookings() {
                             </Tab.Content>
                         </Row>
                     </> :
-                    <Confirm setConfirm={setConfirm} form={form} setForm={setForm} />
+                    <Confirm setConfirm={setConfirm} form={form} setForm={setForm} type={active} />
                 }
             </Tab.Container>
             <Footer />

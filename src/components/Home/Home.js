@@ -9,7 +9,6 @@ import './Home.css'
 export default function Home() {
     return (
         <>
-            
             <Container fluid>
                 <Row>
                     <Col xs={12} lg={6} className="p-0">

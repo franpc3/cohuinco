@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Form, Button, Col, InputGroup, FormControl } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShuttleVan } from "@fortawesome/free-solid-svg-icons";
 import moment from "moment";
 import "./Rafting.css";
 
@@ -26,7 +24,7 @@ export default function Rafting({ setConfirm, form, setForm }) {
     };
 
     useEffect(() => {
-        form.in && form.address && form.time && form.adults + form.childs > 0
+        form.in && (form.transfer ? form.address : true) && form.time && form.adults + form.childs > 0 && form.type > 0
         ? setDisabled(false)
         : setDisabled(true);
     }, [form]);
@@ -55,16 +53,12 @@ export default function Rafting({ setConfirm, form, setForm }) {
             </Form.Group>
 
             <Form.Group className="my-3 font-weight-bold">
-                <Form.Check inline checked={form.transfer} label="Traslado" type="switch" onChange={({target}) => {setForm({...form, transfer: target.checked}); console.log('target', target)}} />
-                {/* <div className="custom-control custom-switch">
-                    <label className="custom-control-label">
-                        <FontAwesomeIcon
-                        className="mr-2 fa-lg textorange"
-                        icon={faShuttleVan}
-                        />
-                        Traslado
-                    </label>
-                </div> */}
+                <Form.Check 
+                    inline checked={form.transfer}
+                    label="Traslado" type="switch"
+                    value={form.transfer}
+                    onChange={({target}) => setForm({...form, transfer: target.checked})}
+                />
             </Form.Group>
 
             {form.transfer &&
@@ -81,11 +75,11 @@ export default function Rafting({ setConfirm, form, setForm }) {
             
             <Form.Group className="font-weight-bold">
                 <Form.Label>Tipo</Form.Label>
-                <Form.Control as="select" custom name="time" value={form.time} onChange={handleChange}>
-                    <option value="">Elegi una opción</option>
-                    <option value="mañana">Familiar Steffen Grado 1</option>
-                    <option value="tarde">Familiar Rio Manso grado2</option>
-                    <option value="tarde">Frontera al Límite grado 4</option>
+                <Form.Control as="select" custom name="type" value={form.type} onChange={handleChange}>
+                    <option value={0}>Elegi una opción</option>
+                    <option value={1}>Familiar Steffen Grado 1</option>
+                    <option value={2}>Familiar Rio Manso grado2</option>
+                    <option value={3} disabled>Frontera al Límite grado 4</option>
                 </Form.Control>
             </Form.Group>
 

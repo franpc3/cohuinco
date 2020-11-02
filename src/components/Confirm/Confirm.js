@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Form, Button, Row, Col, FormControl, Modal } from "react-bootstrap";
 import { faLongArrowAltLeft, faCreditCard } from "@fortawesome/free-solid-svg-icons";
+import { Form, Button, Row, Col, FormControl, Modal } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from 'axios';
 import "./Confirm.css";
 
-export default function Confirm({ setConfirm, form, setForm}) {
+export default function Confirm({ setConfirm, form, setForm, type }) {
   const [disabled, setDisabled] = useState(true),
   [show, setShow] = useState(false),
   
@@ -18,25 +18,47 @@ export default function Confirm({ setConfirm, form, setForm}) {
     event.preventDefault();
     event.stopPropagation();
     if (disabled) return;
-    axios.post(`/bookings`, { 
-      bookingDate: {
-        endDate: form.in,
-        startDate: form.out
-      },
-      dniUser: form.dni,
-      lastNameUser: form.surname,
-      firstNameUser: form.name,
-      phoneNumber: form.phone,
-      mailUser: form.mail,
-      roomType: form.room,
-      adults: form.adults,
-      kids: form.childs
-    }).then(function (response) {
+    if (type === 'alojamiento') {
+      axios.post(`/bookings`, { 
+        bookingDate: {
+          endDate: form.in,
+          startDate: form.out
+        },
+        dniUser: form.dni,
+        lastNameUser: form.surname,
+        firstNameUser: form.name,
+        phoneNumber: form.phone,
+        mailUser: form.mail,
+        roomType: form.room,
+        adults: form.adults,
+        kids: form.childs
+      }).then(response => {
         console.log(response);
       })
-      .catch(function (error) {
+      .catch(error => {
         console.log(error);
       });
+    } else {
+      axios.post(`/rafting`, { 
+        raftingDate: form.in,
+        dniUser: form.dni,
+        lastNameUser: form.surname,
+        firstNameUser: form.name,
+        phoneNumber: form.phone,
+        mailUser: form.mail,
+        raftingType: form.type,
+        raftingTurne: form.time,
+        transfer: form.transfer,
+        addres: form.address,
+        adults: form.adults,
+        kids: form.childs
+      }).then(response => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    }
   };
 
   useEffect(() => {
