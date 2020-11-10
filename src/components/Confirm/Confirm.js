@@ -4,6 +4,7 @@ import { Form, Button, Row, Col, FormControl, Modal } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from 'axios';
 import "./Confirm.css";
+import { Redirect } from "react-router-dom";
 
 export default function Confirm({ setConfirm, form, setForm, type }) {
   const [disabled, setDisabled] = useState(true),
@@ -53,6 +54,7 @@ export default function Confirm({ setConfirm, form, setForm, type }) {
         adults: form.adults,
         kids: form.childs
       }).then(response => {
+        window.location.replace(response.data)
         console.log(response);
       })
       .catch(error => {

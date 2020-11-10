@@ -7,7 +7,11 @@ import axios from 'axios';
 import './App.css';
 
 function App() {
-  axios.defaults.baseURL = 'http://localhost:5001'; /* https://us-central1-test-cohuinco.cloudfunctions.net/app/ */
+
+  //http://localhost:5001/test-cohuinco/us-central1/app
+  //https://us-central1-test-cohuinco.cloudfunctions.net/app
+
+  axios.defaults.baseURL = 'https://us-central1-test-cohuinco.cloudfunctions.net/app'; 
   
   return (
     <Router>
